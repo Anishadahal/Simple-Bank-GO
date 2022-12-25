@@ -15,7 +15,8 @@ ORDER BY id
 LIMIT $1 OFFSET $2; --limit (no of rows to show) & offset (skip this many rows before starting to return result)
 
 
--- name: UpdateAccount :exec
+-- name: UpdateAccount :one
 UPDATE accounts
 SET balance = $2
-WHERE id = $1;
+WHERE id = $1
+RETURNING *;
