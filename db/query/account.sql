@@ -13,3 +13,9 @@ WHERE id = $1 LIMIT 1;
 SELECT * FROM accounts
 ORDER BY id
 LIMIT $1 OFFSET $2; --limit (no of rows to show) & offset (skip this many rows before starting to return result)
+
+
+-- name: UpdateAccount :exec
+UPDATE accounts
+SET balance = $2
+WHERE id = $1;
